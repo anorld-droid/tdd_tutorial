@@ -24,7 +24,15 @@ void main() {
     test('should complete successfully when the status code is 200 0r 201',
         () async {
       //Arrange
-      when(() => client.post(any(), body: any(named: 'body'))).thenAnswer(
+      when(
+        () => client.post(
+          any(),
+          body: any(named: 'body'),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        ),
+      ).thenAnswer(
           (_) async => http.Response('User created successfully', 201));
 
       //Act

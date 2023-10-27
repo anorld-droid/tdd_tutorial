@@ -38,9 +38,11 @@ class AuthRemoteDataSrcImpl extends AuthRemoteDataSource {
           {
             'name': name,
             'createdAt': createdAt,
-            'avatar': avatar,
           },
         ),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       );
 
       if (response.statusCode != 200 && response.statusCode != 201) {
